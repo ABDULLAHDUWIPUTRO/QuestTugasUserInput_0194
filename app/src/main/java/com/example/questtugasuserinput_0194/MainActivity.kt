@@ -219,4 +219,26 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(fieldHeight)
+                    )
+                    Box(
+                        modifier = Modifier
+                            .matchParentSize()
+                            .clickable { showExperienceMenu = true }
+                    )
+                    DropdownMenu(
+                        expanded = showExperienceMenu,
+                        onDismissRequest = { showExperienceMenu = false }
+                    ) {
+                        experienceOptions.forEach { option ->
+                            DropdownMenuItem(
+                                text = { Text(text = option) },
+                                onClick = {
+                                    experience = option
+                                    showExperienceMenu = false
+                                }
+                            )
+                        }
+                    }
+                }
+            }
 
