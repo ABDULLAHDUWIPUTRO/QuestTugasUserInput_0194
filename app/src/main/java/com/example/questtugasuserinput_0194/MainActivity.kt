@@ -135,4 +135,14 @@ fun BiodataCard(modifier: Modifier = Modifier) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(spacing)
-            )
+            ) {
+                OutlinedTextField(
+                    value = firstName,
+                    onValueChange = { firstName = it },
+                    placeholder = { FieldHint(R.string.first_name) },
+                    singleLine = true,
+                    shape = fieldShape,
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(fieldHeight)
+                )
