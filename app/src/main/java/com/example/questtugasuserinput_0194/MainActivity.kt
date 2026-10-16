@@ -120,3 +120,13 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                 fontSize = dimensionResource(id = R.dimen.text_title).value.sp,
                 fontWeight = FontWeight.Bold
             )
+            Text(
+                text = stringResource(id = R.string.subtitle_form),
+                color = colorResource(id = R.color.text_subtitle),
+                fontSize = dimensionResource(id = R.dimen.text_subtitle).value.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(
+                    top = dimensionResource(id = R.dimen.spacing_small),
+                    bottom = dimensionResource(id = R.dimen.spacing_large)
+                )
+            )
