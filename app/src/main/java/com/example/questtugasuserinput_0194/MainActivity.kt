@@ -13,9 +13,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -56,4 +59,16 @@ fun BiodataScreen() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BiodataCard(modifier: Modifier = Modifier)
+fun BiodataCard(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var birthDate by remember { mutableStateOf("") }
+    var experience by remember { mutableStateOf("") }
+    var skillAndroid by remember { mutableStateOf(false) }
+    var skillUiux by remember { mutableStateOf(false) }
+    var skillWeb by remember { mutableStateOf(false) }
+    var showDatePicker by remember { mutableStateOf(false) }
+    var showExperienceMenu by remember { mutableStateOf(false) }
