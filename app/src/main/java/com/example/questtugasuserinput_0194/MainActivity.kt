@@ -84,3 +84,10 @@ fun BiodataCard(modifier: Modifier = Modifier) {
     val fieldShape = RoundedCornerShape(dimensionResource(id = R.dimen.field_radius))
     val fieldHeight = dimensionResource(id = R.dimen.field_height)
     val spacing = dimensionResource(id = R.dimen.spacing)
+
+    val isFormValid = firstName.isNotBlank() &&
+            lastName.isNotBlank() &&
+            email.isNotBlank() &&
+            birthDate.isNotBlank() &&
+            experience.isNotBlank() &&
+            (skillAndroid || skillUiux || skillWeb)
