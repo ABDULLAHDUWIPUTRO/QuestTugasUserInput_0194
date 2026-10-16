@@ -372,3 +372,9 @@ fun SkillCheckbox(textRes: Int, checked: Boolean, onCheckedChange: (Boolean) -> 
         )
     }
 }
+
+private fun formatDate(millis: Long, pattern: String): String {
+    val formatter = SimpleDateFormat(pattern, Locale.getDefault())
+    formatter.timeZone = TimeZone.getTimeZone("UTC")
+    return formatter.format(Date(millis))
+}
