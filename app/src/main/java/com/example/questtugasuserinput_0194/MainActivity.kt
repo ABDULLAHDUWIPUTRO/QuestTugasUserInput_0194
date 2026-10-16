@@ -157,3 +157,16 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                         .height(fieldHeight)
                 )
             }
+
+            // Email
+            OutlinedTextField(
+                value = email,
+                onValueChange = { email = it },
+                placeholder = { FieldHint(R.string.email) },
+                singleLine = true,
+                shape = fieldShape,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = spacing)
+                    .height(fieldHeight)
+            )
