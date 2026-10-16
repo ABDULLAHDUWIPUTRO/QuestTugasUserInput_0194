@@ -18,4 +18,7 @@
     <color name="button_disabled_text">#FFFFFF</color>
     <color name="button_enabled">#6A35B8</color>
     <color name="checkbox_checked">#6A35B8</color>
+
+    <color name="popup_background">#000000</color>
+    <color name="popup_text">#FFFFFF</color>
 </resources>
