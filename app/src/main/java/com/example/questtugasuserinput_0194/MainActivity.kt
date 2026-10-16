@@ -354,3 +354,21 @@ fun FieldHint(textRes: Int) {
         maxLines = 1
     )
 }
+
+@Composable
+fun SkillCheckbox(textRes: Int, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            colors = CheckboxDefaults.colors(
+                checkedColor = colorResource(id = R.color.checkbox_checked)
+            )
+        )
+        Text(
+            text = stringResource(id = textRes),
+            color = colorResource(id = R.color.text_label),
+            fontSize = dimensionResource(id = R.dimen.text_checkbox).value.sp
+        )
+    }
+}
