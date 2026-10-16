@@ -26,4 +26,11 @@
         <item>3 - 5 tahun</item>
         <item>&gt; 5 tahun</item>
     </string-array>
+
+    <string name="popup_name">Nama : %1$s %2$s</string>
+    <string name="popup_email">Email : %1$s</string>
+    <string name="popup_birth">Tgl Lahir : %1$s</string>
+    <string name="popup_experience">Experience : %1$s</string>
+    <string name="popup_skill">Skill : %1$s</string>
+    <string name="skill_separator" translatable="false">, </string>
 </resources>
