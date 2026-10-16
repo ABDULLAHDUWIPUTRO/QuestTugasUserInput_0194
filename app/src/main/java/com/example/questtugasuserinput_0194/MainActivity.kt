@@ -344,3 +344,13 @@ fun BiodataCard(modifier: Modifier = Modifier) {
         }
     }
 }
+
+@Composable
+fun FieldHint(textRes: Int) {
+    Text(
+        text = stringResource(id = textRes),
+        color = colorResource(id = R.color.text_hint),
+        fontSize = dimensionResource(id = R.dimen.text_field).value.sp,
+        maxLines = 1
+    )
+}
