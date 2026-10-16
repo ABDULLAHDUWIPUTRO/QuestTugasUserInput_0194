@@ -170,3 +170,11 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                     .padding(top = spacing)
                     .height(fieldHeight)
             )
+
+            // Tgl lahir + experience
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = spacing),
+                horizontalArrangement = Arrangement.spacedBy(spacing)
+            )
