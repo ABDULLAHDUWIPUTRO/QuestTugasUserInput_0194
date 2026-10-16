@@ -16,4 +16,9 @@
     <dimen name="text_field">14dp</dimen>
     <dimen name="text_checkbox">12dp</dimen>
     <dimen name="text_button">16dp</dimen>
+
+    <dimen name="popup_radius">24dp</dimen>
+    <dimen name="popup_padding">24dp</dimen>
+    <dimen name="popup_elevation">12dp</dimen>
+    <dimen name="text_popup">18dp</dimen>
 </resources>
