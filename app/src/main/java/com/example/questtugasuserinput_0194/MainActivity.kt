@@ -196,4 +196,10 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                             .fillMaxWidth()
                             .height(fieldHeight)
                     )
+                    Box(
+                        modifier = Modifier
+                            .matchParentSize()
+                            .clickable { showDatePicker = true }
+                    )
+                }
 
