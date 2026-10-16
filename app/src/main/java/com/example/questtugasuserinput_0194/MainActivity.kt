@@ -14,15 +14,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.matchParentSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -61,7 +57,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
-import com.example.questtugasuserinput_0194.ui.theme.QuestTugasUserInput_0194Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -219,7 +214,7 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                         placeholder = { FieldHint(R.string.birth_date) },
                         trailingIcon = {
                             Icon(
-                                imageVector = Icons.Default.DateRange,
+                                painter = painterResource(id = R.drawable.ic_calendar),
                                 contentDescription = stringResource(id = R.string.cd_calendar)
                             )
                         },
@@ -243,7 +238,7 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                         placeholder = { FieldHint(R.string.experience) },
                         trailingIcon = {
                             Icon(
-                                imageVector = Icons.Default.ArrowDropDown,
+                                painter = painterResource(id = R.drawable.ic_arrow_drop_down),
                                 contentDescription = stringResource(id = R.string.cd_dropdown)
                             )
                         },
