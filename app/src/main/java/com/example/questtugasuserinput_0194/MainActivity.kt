@@ -190,3 +190,10 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                                 contentDescription = stringResource(id = R.string.cd_calendar)
                             )
                         },
+                        singleLine = true,
+                        shape = fieldShape,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(fieldHeight)
+                    )
+
