@@ -106,4 +106,11 @@ fun BiodataCard(modifier: Modifier = Modifier) {
             )
             .background(colorResource(id = R.color.card_background))
             .navigationBarsPadding()
-    )
+    )  {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(dimensionResource(id = R.dimen.card_padding)),
+            horizontalAlignment = Alignment.CenterHorizontally
+        )
