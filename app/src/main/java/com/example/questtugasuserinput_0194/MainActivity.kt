@@ -19,6 +19,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
@@ -91,3 +92,12 @@ fun BiodataCard(modifier: Modifier = Modifier) {
             birthDate.isNotBlank() &&
             experience.isNotBlank() &&
             (skillAndroid || skillUiux || skillWeb)
+
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .clip(
+                RoundedCornerShape(
+                    topStart = dimensionResource(id = R.dimen.card_radius),
+                    topEnd = dimensionResource(id = R.dimen.card_radius)
+                )
