@@ -294,3 +294,29 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                 SkillCheckbox(R.string.skill_uiux, skillUiux) { skillUiux = it }
                 SkillCheckbox(R.string.skill_web, skillWeb) { skillWeb = it }
             }
+
+            // Tombol
+            Button(
+                onClick = {
+                    Toast.makeText(context, successMessage, Toast.LENGTH_SHORT).show()
+                },
+                enabled = isFormValid,
+                shape = RoundedCornerShape(dimensionResource(id = R.dimen.button_radius)),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = colorResource(id = R.color.button_enabled),
+                    disabledContainerColor = colorResource(id = R.color.button_disabled),
+                    disabledContentColor = colorResource(id = R.color.button_disabled_text)
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = dimensionResource(id = R.dimen.spacing_large))
+                    .height(dimensionResource(id = R.dimen.button_height))
+            ) {
+                Text(
+                    text = stringResource(id = R.string.proceed),
+                    fontSize = dimensionResource(id = R.dimen.text_button).value.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+    }
