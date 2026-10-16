@@ -1,6 +1,5 @@
 package com.example.questtugasuserinput_0194
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -43,7 +42,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -57,6 +55,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
+import androidx.compose.material3.Surface
+import androidx.compose.ui.window.Dialog
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,7 +94,6 @@ fun BiodataScreen() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BiodataCard(modifier: Modifier = Modifier) {
-    val context = LocalContext.current
 
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
@@ -106,10 +105,15 @@ fun BiodataCard(modifier: Modifier = Modifier) {
     var skillWeb by remember { mutableStateOf(false) }
     var showDatePicker by remember { mutableStateOf(false) }
     var showExperienceMenu by remember { mutableStateOf(false) }
+    var showResult by remember { mutableStateOf(false) }
 
     val datePickerState = rememberDatePickerState()
     val experienceOptions = stringArrayResource(id = R.array.experience_options)
     val dateFormat = stringResource(id = R.string.date_format)
+    val labelAndroid = stringResource(id = R.string.skill_android)
+    val labelUiux = stringResource(id = R.string.skill_uiux)
+    val labelWeb = stringResource(id = R.string.skill_web)
+    val skillSeparator = stringResource(id = R.string.skill_separator)
     val successMessage = stringResource(id = R.string.msg_success)
 
     val fieldShape = RoundedCornerShape(dimensionResource(id = R.dimen.field_radius))
@@ -293,7 +297,7 @@ fun BiodataCard(modifier: Modifier = Modifier) {
             // Tombol
             Button(
                 onClick = {
-                    Toast.makeText(context, successMessage, Toast.LENGTH_SHORT).show()
+                    showResult = true
                 },
                 enabled = isFormValid,
                 shape = RoundedCornerShape(dimensionResource(id = R.dimen.button_radius)),
@@ -338,7 +342,36 @@ fun BiodataCard(modifier: Modifier = Modifier) {
             DatePicker(state = datePickerState)
         }
     }
-}
+
+        if (showResult) {
+            val skills = buildList {
+                if (skillAndroid) add(labelAndroid)
+                if (skillUiux) add(labelUiux)
+                if (skillWeb) add(labelWeb)
+            }.joinToString(separator = skillSeparator)
+
+            Dialog(onDismissRequest = { showResult = false }) {
+                Surface(
+                    shape = RoundedCornerShape(dimensionResource(id = R.dimen.popup_radius)),
+                    color = colorResource(id = R.color.popup_background),
+                    shadowElevation = dimensionResource(id = R.dimen.popup_elevation)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(dimensionResource(id = R.dimen.popup_padding)),
+                        verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.spacing_small))
+                    ) {
+                        PopupText(stringResource(id = R.string.popup_name, firstName, lastName))
+                        PopupText(stringResource(id = R.string.popup_email, email))
+                        PopupText(stringResource(id = R.string.popup_birth, birthDate))
+                        PopupText(stringResource(id = R.string.popup_experience, experience))
+                        PopupText(stringResource(id = R.string.popup_skill, skills))
+                    }
+                }
+            }
+        }
+    }
 
 @Composable
 fun FieldHint(textRes: Int) {
@@ -367,6 +400,16 @@ fun SkillCheckbox(textRes: Int, checked: Boolean, onCheckedChange: (Boolean) -> 
         )
     }
 }
+
+@Composable
+fun PopupText(text: String) {
+    Text(
+        text = text,
+        color = colorResource(id = R.color.popup_text),
+        fontSize = dimensionResource(id = R.dimen.text_popup).value.sp
+    )
+}
+
 
 private fun formatDate(millis: Long, pattern: String): String {
     val formatter = SimpleDateFormat(pattern, Locale.getDefault())
