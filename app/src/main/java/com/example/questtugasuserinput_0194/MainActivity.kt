@@ -130,3 +130,9 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                     bottom = dimensionResource(id = R.dimen.spacing_large)
                 )
             )
+
+            // Nama depan + belakang
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(spacing)
+            )
