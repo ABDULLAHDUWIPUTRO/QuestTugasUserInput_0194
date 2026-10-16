@@ -177,4 +177,16 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .padding(top = spacing),
                 horizontalArrangement = Arrangement.spacedBy(spacing)
-            )
+            ) {
+                Box(modifier = Modifier.weight(1f)) {
+                    OutlinedTextField(
+                        value = birthDate,
+                        onValueChange = {},
+                        readOnly = true,
+                        placeholder = { FieldHint(R.string.birth_date) },
+                        trailingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.DateRange,
+                                contentDescription = stringResource(id = R.string.cd_calendar)
+                            )
+                        },
