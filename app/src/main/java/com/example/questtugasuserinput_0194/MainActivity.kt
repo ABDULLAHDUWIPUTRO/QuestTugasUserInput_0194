@@ -202,4 +202,21 @@ fun BiodataCard(modifier: Modifier = Modifier) {
                             .clickable { showDatePicker = true }
                     )
                 }
+                Box(modifier = Modifier.weight(1f)) {
+                    OutlinedTextField(
+                        value = experience,
+                        onValueChange = {},
+                        readOnly = true,
+                        placeholder = { FieldHint(R.string.experience) },
+                        trailingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.ArrowDropDown,
+                                contentDescription = stringResource(id = R.string.cd_dropdown)
+                            )
+                        },
+                        singleLine = true,
+                        shape = fieldShape,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(fieldHeight)
 
